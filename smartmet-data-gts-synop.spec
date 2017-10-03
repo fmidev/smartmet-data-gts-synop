@@ -2,7 +2,7 @@
 
 Name:           smartmet-data-gts-synop
 Version:        17.10.3
-Release:        1%{?dist}.fmi
+Release:        3%{?dist}.fmi
 Summary:        SmartMet Data GTS SYNOP
 Group:          System Environment/Base
 License:        MIT
@@ -36,7 +36,7 @@ mkdir -p .%{smartmetroot}/logs/data
 mkdir -p .%{smartmetroot}/run/data/synop/bin
 
 cat > %{buildroot}%{smartmetroot}/cnf/cron/cron.d/synop-gts.cron <<EOF
-*/20 * * * * /smartmet/run/data/synop/bin/dosynop.sh 
+*/10 * * * * /smartmet/run/data/synop/bin/dosynop.sh 
 EOF
 
 cat > %{buildroot}%{smartmetroot}/cnf/cron/cron.hourly/clean_data_gts_synop <<EOF

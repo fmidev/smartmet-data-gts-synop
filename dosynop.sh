@@ -16,6 +16,7 @@ OUT=$BASE/data/gts
 EDITOR=$BASE/editor/in
 TMP=$BASE/tmp/data/synop
 TIMESTAMP=`date +%Y%m%d%H%M`
+LOGFILE=$BASE/logs/data/synop-gts.log
 
 SYNOPFILE=$TMP/${TIMESTAMP}_gts_world_synop.sqd
 SHIPFILE=$TMP/${TIMESTAMP}_gts_world_ship.sqd
