@@ -1,8 +1,8 @@
 %define smartmetroot /smartmet
 
 Name:           smartmet-data-gts-synop
-Version:        17.10.3
-Release:        3%{?dist}.fmi
+Version:        17.10.4
+Release:        1%{?dist}.fmi
 Summary:        SmartMet Data GTS SYNOP
 Group:          System Environment/Base
 License:        MIT
@@ -51,6 +51,7 @@ cleaner -maxfiles 2 '_buoy.sqd' %{smartmetroot}/editor/in
 
 # Clean incoming SYNOP data older than 7 days (7 * 24 * 60 = 10080 min)
 find %{smartmetroot}/data/incoming/gts/synop -type f -mmin +10080 -delete
+find %{smartmetroot}/data/incoming/gts/synop-bufr -type f -mmin +10080 -delete
 EOF
 
 install -m 755 %_topdir/SOURCES/smartmet-data-gts-synop/dosynop.sh %{buildroot}%{smartmetroot}/run/data/synop/bin/
