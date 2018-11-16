@@ -1,7 +1,7 @@
 %define smartmetroot /smartmet
 
 Name:           smartmet-data-gts-synop
-Version:        17.10.4
+Version:        18.11.16
 Release:        1%{?dist}.fmi
 Summary:        SmartMet Data GTS SYNOP
 Group:          System Environment/Base
@@ -69,5 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %{smartmetroot}/*
 
 %changelog
+* Fri Nov 16 2018 Mikko Rauhala <mikko.rauhala@fmi.fi> 18.11.16-1.el7.fmi
+- Removed -t option
 * Tue Oct 3 2017 Mikko Rauhala <mikko.rauhala@fmi.fi> 17.10.3-1.el7.fmi
 - Initial Version
