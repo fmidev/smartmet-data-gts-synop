@@ -39,13 +39,13 @@ echo "SHIP  File: $SHIPFILE"
 echo "BUOY  File: $BUOYFILE"
 
 # Do SYNOP stations
-synop2qd -t "$IN/*" > $SYNOPFILE
+synop2qd "$IN/*" > $SYNOPFILE
 
 # Do SHIP SYNOP stations
-synop2qd -S -t -p 1002,SHIP "$IN/*" > $SHIPFILE
+synop2qd -S -p 1002,SHIP "$IN/*" > $SHIPFILE
 
 # Do SHIP SYNOP stations
-synop2qd -B -t -p 1017,BUOY "$IN/*" > $BUOYFILE
+synop2qd -B -p 1017,BUOY "$IN/*" > $BUOYFILE
 
 
 if [ -s $SYNOPFILE ]; then
