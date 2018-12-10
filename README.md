@@ -1,7 +1,13 @@
 # smartmet-data-gts-synop
 
-Reads GTS WMO FM-12 SYNOP files and converts those for SmartMet.
+Reads GTS WMO FM-12 SYNOP and GTS WMO BURF SYNOP files and converts those for SmartMet.
 
-After installing this package. Configure message switch server to send files to /smartmet/data/incoming/gts/synop
+After installing this package. Configure message switch server to send files as follows:
 
-WMO Headers to send are SM SI and SN.
+## GTS WMO FM-12 SYNOP:
+**WMO-messages:** SM/// SI/// SN///
+**Directory:** /smartmet/data/incoming/gts/synop
+
+## GTS WMO BUFR SYNOP:
+**WMO-messages:** IS///
+**Directory:** /smartmet/data/incoming/gts/synop-bufr
