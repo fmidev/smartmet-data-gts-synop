@@ -6,8 +6,10 @@ After installing this package. Configure message switch server to send files as 
 
 ## GTS WMO FM-12 SYNOP:
 **WMO-messages:** SM/// SI/// SN///
+
 **Directory:** /smartmet/data/incoming/gts/synop
 
 ## GTS WMO BUFR SYNOP:
 **WMO-messages:** IS///
+
 **Directory:** /smartmet/data/incoming/gts/synop-bufr
