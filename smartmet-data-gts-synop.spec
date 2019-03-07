@@ -1,7 +1,7 @@
 %define smartmetroot /smartmet
 
 Name:           smartmet-data-gts-synop
-Version:        18.11.16
+Version:        19.3.7
 Release:        1%{?dist}.fmi
 Summary:        SmartMet Data GTS SYNOP
 Group:          System Environment/Base
@@ -37,6 +37,7 @@ mkdir -p .%{smartmetroot}/run/data/synop/bin
 
 cat > %{buildroot}%{smartmetroot}/cnf/cron/cron.d/synop-gts.cron <<EOF
 */10 * * * * /smartmet/run/data/synop/bin/dosynop.sh 
+*/20 * * * * /smartmet/run/data/synop/bin/dosynop-bufr.sh
 EOF
 
 cat > %{buildroot}%{smartmetroot}/cnf/cron/cron.hourly/clean_data_gts_synop <<EOF
@@ -49,12 +50,17 @@ cleaner -maxfiles 2 '_synop.sqd' %{smartmetroot}/editor/in
 cleaner -maxfiles 2 '_ship.sqd' %{smartmetroot}/editor/in
 cleaner -maxfiles 2 '_buoy.sqd' %{smartmetroot}/editor/in
 
+# Clean SYNOP BUFR dat
+cleaner -maxfiles 2 '_synop_bufr.sqd' %{smartmetroot}/data/gts/synop-bufr
+cleaner -maxfiles 2 '_synop_bufr.sqd' %{smartmetroot}/editor/in
+
 # Clean incoming SYNOP data older than 7 days (7 * 24 * 60 = 10080 min)
 find %{smartmetroot}/data/incoming/gts/synop -type f -mmin +10080 -delete
 find %{smartmetroot}/data/incoming/gts/synop-bufr -type f -mmin +10080 -delete
 EOF
 
 install -m 755 %_topdir/SOURCES/smartmet-data-gts-synop/dosynop.sh %{buildroot}%{smartmetroot}/run/data/synop/bin/
+install -m 755 %_topdir/SOURCES/smartmet-data-gts-synop/dosynop-bufr.sh %{buildroot}%{smartmetroot}/run/data/synop/bin/
 
 %post
 
@@ -69,6 +75,8 @@ rm -rf $RPM_BUILD_ROOT
 %{smartmetroot}/*
 
 %changelog
+* Thu Mar 7 2019 Mikko Rauhala <mikko.rauhala@fmi.fi> 19.3.7-1.el7.fmi
+- Added BUFR script
 * Fri Nov 16 2018 Mikko Rauhala <mikko.rauhala@fmi.fi> 18.11.16-1.el7.fmi
 - Removed -t option
 * Tue Oct 3 2017 Mikko Rauhala <mikko.rauhala@fmi.fi> 17.10.3-1.el7.fmi
