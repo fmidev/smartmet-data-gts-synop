@@ -2,6 +2,9 @@
 
 Reads GTS WMO FM-12 SYNOP and GTS WMO BURF SYNOP files and converts those for SmartMet.
 
+## Install from repository
+> yum install smartmet-data-gts-synop
+
 After installing this package. Configure message switch server to send files as follows:
 
 ## GTS WMO FM-12 SYNOP:
