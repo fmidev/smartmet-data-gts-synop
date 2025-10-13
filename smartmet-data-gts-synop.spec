@@ -1,7 +1,7 @@
 %define smartmetroot /smartmet
 
 Name:           smartmet-data-gts-synop
-Version:        19.3.7
+Version:        25.10.13
 Release:        1%{?dist}.fmi
 Summary:        SmartMet Data GTS SYNOP
 Group:          System Environment/Base
@@ -29,7 +29,7 @@ mkdir $RPM_BUILD_ROOT
 cd $RPM_BUILD_ROOT
 
 mkdir -p .%{smartmetroot}/cnf/cron/{cron.d,cron.hourly}
-mkdir -p .%{smartmetroot}/data/incoming/gts/synop
+mkdir -p .%{smartmetroot}/data/incoming/gts/{synop,synop-bufr}
 mkdir -p .%{smartmetroot}/editor/in
 mkdir -p .%{smartmetroot}/tmp/data/synop_gts
 mkdir -p .%{smartmetroot}/logs/data
@@ -72,9 +72,12 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{smartmetroot}/cnf/cron/cron.d/synop-gts.cron
 %config(noreplace) %attr(0755,smartmet,smartmet) %{smartmetroot}/cnf/cron/cron.hourly/clean_data_gts_synop
 %attr(2775,smartmet,gts)  %dir %{smartmetroot}/data/incoming/gts/synop
+%attr(2775,smartmet,gts)  %dir %{smartmetroot}/data/incoming/gts/synop-bufr
 %{smartmetroot}/*
 
 %changelog
+* Mon Oct 13 2025 Mikko Rauhala <mikko.rauhala@fmi.fi> 25.10.13-1.el9.fmi
+- Added BUFR incoming dir
 * Thu Mar 7 2019 Mikko Rauhala <mikko.rauhala@fmi.fi> 19.3.7-1.el7.fmi
 - Added BUFR script
 * Fri Nov 16 2018 Mikko Rauhala <mikko.rauhala@fmi.fi> 18.11.16-1.el7.fmi
