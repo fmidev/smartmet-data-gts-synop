@@ -30,7 +30,7 @@ cd $RPM_BUILD_ROOT
 mkdir -p .%{smartmetroot}/cnf/cron/{cron.d,cron.hourly}
 mkdir -p .%{smartmetroot}/data/incoming/gts/{synop,synop-bufr}
 mkdir -p .%{smartmetroot}/editor/in
-mkdir -p .%{smartmetroot}/tmp/data/synop_gts
+mkdir -p .%{smartmetroot}/tmp/data/synop
 mkdir -p .%{smartmetroot}/logs/data
 mkdir -p .%{smartmetroot}/run/data/synop/bin
 
