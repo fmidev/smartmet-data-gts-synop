@@ -1,7 +1,7 @@
 %define smartmetroot /smartmet
 
 Name:           smartmet-data-gts-synop
-Version:        25.10.13
+Version:        26.5.21
 Release:        1%{?dist}.fmi
 Summary:        SmartMet Data GTS SYNOP
 Group:          System Environment/Base
@@ -68,6 +68,15 @@ rm -rf $RPM_BUILD_ROOT
 %{smartmetroot}/*
 
 %changelog
+* Thu May 21 2026 Mikko Rauhala <mikko.rauhala@fmi.fi> 26.5.21-1.el9.fmi
+- Decode all subsets in BUFR messages via --subsets
+- Harden FM-12 and BUFR scripts: switch to #!/bin/bash, enable set -uo
+  pipefail (without -e so SYNOP/SHIP/BUOY conversions stay independent),
+  quote every variable expansion, replace legacy backticks with $(),
+  guard TERM expansion, and clean tmp on EXIT via trap
+- Fix tmp/data/synop creation in spec (was tmp/data/synop_gts)
+- Drop unused wget requirement and SHIP/BUOY scaffolding from BUFR script
+- Add CI workflow that builds RPMs for Rocky 8/9/10
 * Mon Oct 13 2025 Mikko Rauhala <mikko.rauhala@fmi.fi> 25.10.13-1.el9.fmi
 - Added BUFR incoming dir
 * Thu Mar 7 2019 Mikko Rauhala <mikko.rauhala@fmi.fi> 19.3.7-1.el7.fmi
