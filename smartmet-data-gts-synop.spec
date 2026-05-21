@@ -14,13 +14,8 @@ Requires:       smartmet-qdtools
 Requires:       bzip2
 
 %description
-TODO
-
-%prep
-
-%build
-
-%pre
+Reads GTS WMO FM-12 (text) and BUFR SYNOP files and converts them to
+SmartMet querydata for the data server and the editor.
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -60,8 +55,6 @@ EOF
 
 install -m 755 %_topdir/SOURCES/smartmet-data-gts-synop/dosynop.sh %{buildroot}%{smartmetroot}/run/data/synop/bin/
 install -m 755 %_topdir/SOURCES/smartmet-data-gts-synop/dosynop-bufr.sh %{buildroot}%{smartmetroot}/run/data/synop/bin/
-
-%post
 
 %clean
 rm -rf $RPM_BUILD_ROOT
