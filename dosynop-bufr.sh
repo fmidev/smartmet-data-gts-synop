@@ -39,7 +39,7 @@ echo "SHIP  File: $SHIPFILE"
 echo "BUOY  File: $BUOYFILE"
 
 # Do SYNOP stations
-bufrtoqd -a -C land $IN/ $SYNOPFILE
+bufrtoqd -a -C land --subsets $IN/ $SYNOPFILE
 
 # Do SHIP SYNOP stations
 #synop2qd -S -t -p 1002,SHIP "$IN/*" > $SHIPFILE
