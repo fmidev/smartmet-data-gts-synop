@@ -35,7 +35,7 @@ echo "TMP: $TMP"
 echo "SYNOP File: $SYNOPFILE"
 
 # Do SYNOP stations
-bufrtoqd -a -C land $IN/ $SYNOPFILE
+bufrtoqd -a -C land --subsets $IN/ $SYNOPFILE
 
 if [ -s $SYNOPFILE ]; then
     bzip2 -k $SYNOPFILE
