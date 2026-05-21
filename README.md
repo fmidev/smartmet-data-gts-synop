@@ -1,8 +1,8 @@
-# smartmet-data-gts-synop
+# SmartMet GTS SYNOP ingestion module
 
-SmartMet data ingestion module for GTS SYNOP observations. Reads incoming
-GTS WMO FM-12 (text) and BUFR SYNOP files and converts them to SmartMet
-querydata (`.sqd`) for both the data server and the editor.
+Reads incoming GTS WMO FM-12 (text) and BUFR SYNOP files and converts
+them to SmartMet querydata (`.sqd`) for both the data server and the
+editor.
 
 ## Install
 
