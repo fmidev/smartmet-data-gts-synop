@@ -26,7 +26,7 @@ mkdir -p $TMP
 mkdir -p $OUT/{synop,ship,buoy}/world/querydata
 
 # Use log file if not run interactively
-if [ $TERM = "dumb" ]; then
+if [ "$TERM" = "dumb" ]; then
     exec &> $LOGFILE
 fi
 
@@ -44,7 +44,7 @@ synop2qd "$IN/*" > $SYNOPFILE
 # Do SHIP SYNOP stations
 synop2qd -S -p 1002,SHIP "$IN/*" > $SHIPFILE
 
-# Do SHIP SYNOP stations
+# Do BUOY SYNOP stations
 synop2qd -B -p 1017,BUOY "$IN/*" > $BUOYFILE
 
 

@@ -12,7 +12,6 @@ BuildArch:      noarch
 
 Requires:       smartmet-qdtools
 Requires:       bzip2
-Requires:       wget
 
 %description
 TODO
@@ -50,7 +49,7 @@ cleaner -maxfiles 2 '_synop.sqd' %{smartmetroot}/editor/in
 cleaner -maxfiles 2 '_ship.sqd' %{smartmetroot}/editor/in
 cleaner -maxfiles 2 '_buoy.sqd' %{smartmetroot}/editor/in
 
-# Clean SYNOP BUFR dat
+# Clean SYNOP BUFR data
 cleaner -maxfiles 2 '_synop_bufr.sqd' %{smartmetroot}/data/gts/synop-bufr
 cleaner -maxfiles 2 '_synop_bufr.sqd' %{smartmetroot}/editor/in
 

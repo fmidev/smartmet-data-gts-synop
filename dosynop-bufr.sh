@@ -26,7 +26,7 @@ mkdir -p $TMP
 mkdir -p $OUT/{synop-bufr,ship-bufr,buoy-bufr}/world/querydata
 
 # Use log file if not run interactively
-if [ $TERM = "dumb" ]; then
+if [ "$TERM" = "dumb" ]; then
     exec &> $LOGFILE
 fi
 
